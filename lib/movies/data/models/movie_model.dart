@@ -18,7 +18,7 @@ class MovieModel extends Movie {
         title: json['title'],
 
         /// TODO: CHECK THIS
-        voteAverage: json['vote_average'],
+        voteAverage: json['vote_average'].toDouble(),
         overview: json['overview'],
         releaseDate: json['release_date'],
       );
