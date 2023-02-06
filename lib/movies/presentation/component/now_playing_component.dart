@@ -5,9 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/network/api_constance.dart';
+import 'package:movie_app/core/util/app_strings.dart';
 import 'package:movie_app/core/util/enums.dart';
 import 'package:movie_app/movies/presentation/controller/movie_bloc.dart';
 import 'package:movie_app/movies/presentation/controller/movie_state.dart';
+import 'package:movie_app/movies/presentation/screen/movie_detail_screen.dart';
 
 class NowPlayingComponent extends StatelessWidget {
   const NowPlayingComponent({Key? key}) : super(key: key);
@@ -40,8 +42,16 @@ class NowPlayingComponent extends StatelessWidget {
                     return GestureDetector(
                       key: const Key('openMovieMinimalDetail'),
                       onTap: () {
-                        /// TODO : NAVIGATE TO MOVIE DETAILS
-                        print('Bisho 1');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return MovieDetailScreen(
+                                id: item.id,
+                              );
+                            },
+                          ),
+                        );
                       },
                       child: Stack(
                         children: [
@@ -87,7 +97,7 @@ class NowPlayingComponent extends StatelessWidget {
                                       ),
                                       const SizedBox(width: 4.0),
                                       Text(
-                                        'Now Playing'.toUpperCase(),
+                                        AppStrings.nowPlaying.toUpperCase(),
                                         style: const TextStyle(
                                           fontSize: 16.0,
                                           color: Colors.white,

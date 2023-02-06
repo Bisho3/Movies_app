@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/usecase/base_usecase.dart';
 import 'package:movie_app/core/util/enums.dart';
 import 'package:movie_app/movies/domain/use_cases/get_now_playing_usecase.dart';
 import 'package:movie_app/movies/domain/use_cases/get_poopular_movie_usecase.dart';
@@ -27,7 +28,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
   FutureOr<void> _getNowPlayingMovie(
       GetNowPlayingMovieEvent event, Emitter<MovieState> emit) async {
-    final result = await getNowPlayingMovieUseCase();
+    final result = await getNowPlayingMovieUseCase(const NoParameters());
 
     result.fold((l) {
       emit(
@@ -48,7 +49,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
   FutureOr<void> _getPopularMovie(
       GetPopularMovieEvent event, Emitter<MovieState> emit) async {
-    final result = await getPopularMovieUseCase();
+    final result = await getPopularMovieUseCase(const NoParameters());
 
     result.fold((l) {
       emit(
@@ -70,7 +71,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
   FutureOr<void> _getTopRatedMovie(
       GetTopRatedMovieEvent event, Emitter<MovieState> emit) async {
-    final result = await getTopRatedMovieUseCase();
+    final result = await getTopRatedMovieUseCase(const NoParameters());
     result.fold((l) {
       emit(
         state.copyWith(

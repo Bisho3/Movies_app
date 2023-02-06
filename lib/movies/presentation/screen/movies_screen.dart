@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/core/services/services_locator.dart';
+import 'package:movie_app/core/util/app_strings.dart';
 import 'package:movie_app/movies/presentation/component/now_playing_component.dart';
 import 'package:movie_app/movies/presentation/component/popular_component.dart';
 import 'package:movie_app/movies/presentation/component/top_rated_component.dart';
@@ -21,7 +22,7 @@ class MoviesScreen extends StatelessWidget {
           ..add(GetTopRatedMovieEvent());
       },
       child: Scaffold(
-        backgroundColor: Colors.grey.shade900,
+
         body: SingleChildScrollView(
           key: const Key('movieScrollView'),
           child: Column(
@@ -39,7 +40,7 @@ class MoviesScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Popular",
+                      AppStrings.popular,
                       style: GoogleFonts.poppins(
                         fontSize: 19,
                         fontWeight: FontWeight.w500,
@@ -56,7 +57,7 @@ class MoviesScreen extends StatelessWidget {
                         child: Row(
                           children: const [
                             Text(
-                              'See More',
+                              AppStrings.seeMore,
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -85,7 +86,7 @@ class MoviesScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Top Rated",
+                      AppStrings.topRated,
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: 19,
@@ -101,7 +102,7 @@ class MoviesScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           children: const [
-                            Text('See More',
+                            Text(AppStrings.seeMore,
                                 style: TextStyle(
                                   color: Colors.white,
                                 )),
